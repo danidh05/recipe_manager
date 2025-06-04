@@ -15,6 +15,18 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('recipes.index')" :active="request()->routeIs('recipes.index')">
+                        {{ __('Recipes') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('recipes.create')" :active="request()->routeIs('recipes.create')">
+                        {{ __('Add Recipe') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('recipes.search')" :active="request()->routeIs('recipes.search')">
+                        {{ __('Search') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('recipes.ai')" :active="request()->routeIs('recipes.ai')">
+                        {{ __('AI Suggestion') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -38,13 +50,10 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
-                        <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                                onclick="event.preventDefault(); this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
@@ -70,9 +79,20 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('recipes.index')">
+                {{ __('Recipes') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('recipes.create')">
+                {{ __('Add Recipe') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('recipes.search')">
+                {{ __('Search') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('recipes.ai')">
+                {{ __('AI Suggestion') }}
+            </x-responsive-nav-link>
         </div>
 
-        <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
@@ -84,13 +104,10 @@
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
 
-                <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
                     <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
+                        onclick="event.preventDefault(); this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
